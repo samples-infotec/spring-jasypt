@@ -1,0 +1,15 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-AngularSampleApp<angular-sample>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "mx.infotec.sample.AngularSampleApp",
+      "projectName": "angular-sample",
+      "args": "--spring.profiles.active=dev",
+      "vmArgs": ["--add-opens", "java.base/jdk.internal.misc=ALL-UNNAMED", "-Dio.netty.tryReflectionSetAccessible=true"],
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
