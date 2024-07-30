@@ -1,0 +1,2 @@
+org.springframework.test.context.ContextCustomizerFactory = mx.infotec.sample.\
+    config.SqlTestContainersSpringContextCustomizerFactory
