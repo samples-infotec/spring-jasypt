@@ -1,0 +1,29 @@
+{
+  "angularSampleApp": {
+    "persona": {
+      "home": {
+        "title": "Personas",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Persona",
+        "createOrEditLabel": "Create or edit a Persona",
+        "notFound": "No Personas found"
+      },
+      "created": "A new Persona is created with identifier {{ param }}",
+      "updated": "A Persona is updated with identifier {{ param }}",
+      "deleted": "A Persona is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Persona {{ id }}?"
+      },
+      "detail": {
+        "title": "Persona"
+      },
+      "id": "ID",
+      "nombre": "Name",
+      "primerApellido": "Last name",
+      "segundoApellido": "",
+      "fechaNacimiento": "Birth date",
+      "edad": "Age",
+      "curp": "Curp"
+    }
+  }
+}

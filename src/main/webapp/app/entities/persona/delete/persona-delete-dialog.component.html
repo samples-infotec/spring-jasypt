@@ -1,0 +1,26 @@
+@if (persona) {
+  <form name="deleteForm" (ngSubmit)="confirmDelete(persona.id!)">
+    <div class="modal-header">
+      <h4 class="modal-title" data-cy="personaDeleteDialogHeading" coreTranslate="entity.delete.title">Confirmar operación de borrado</h4>
+
+      <span class="btn btn-close" data-dismiss="modal" aria-hidden="true" (click)="cancel()"></span>
+    </div>
+
+    <div class="modal-body">
+      <core-alert-error></core-alert-error>
+      <p id="core-delete-persona-heading" coreTranslate="angularSampleApp.persona.delete.question" [translateValues]="{ id: persona.id }">
+        ¿Seguro que quiere eliminar Persona {{ persona.id }}?
+      </p>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cancel()">
+        <fa-icon icon="ban"></fa-icon>&nbsp;<span coreTranslate="entity.action.cancel">Cancelar</span>
+      </button>
+
+      <button id="core-confirm-delete-persona" data-cy="entityConfirmDeleteButton" type="submit" class="btn btn-danger">
+        <fa-icon icon="times"></fa-icon>&nbsp;<span coreTranslate="entity.action.delete">Eliminar</span>
+      </button>
+    </div>
+  </form>
+}

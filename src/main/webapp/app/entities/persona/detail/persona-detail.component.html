@@ -1,0 +1,54 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (persona) {
+      <div>
+        <h2 data-cy="personaDetailsHeading"><span coreTranslate="angularSampleApp.persona.detail.title">Persona</span></h2>
+
+        <hr />
+
+        <core-alert-error></core-alert-error>
+
+        <core-alert></core-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span coreTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ persona.id }}</span>
+          </dd>
+          <dt><span coreTranslate="angularSampleApp.persona.nombre">Nombre</span></dt>
+          <dd>
+            <span>{{ persona.nombre }}</span>
+          </dd>
+          <dt><span coreTranslate="angularSampleApp.persona.primerApellido">Primer Apellido</span></dt>
+          <dd>
+            <span>{{ persona.primerApellido }}</span>
+          </dd>
+          <dt><span coreTranslate="angularSampleApp.persona.segundoApellido">Segundo Apellido</span></dt>
+          <dd>
+            <span>{{ persona.segundoApellido }}</span>
+          </dd>
+          <dt><span coreTranslate="angularSampleApp.persona.fechaNacimiento">Fecha Nacimiento</span></dt>
+          <dd>
+            <span>{{ persona.fechaNacimiento | formatMediumDate }}</span>
+          </dd>
+          <dt><span coreTranslate="angularSampleApp.persona.edad">Edad</span></dt>
+          <dd>
+            <span>{{ persona.edad }}</span>
+          </dd>
+          <dt><span coreTranslate="angularSampleApp.persona.curp">Curp</span></dt>
+          <dd>
+            <span>{{ persona.curp }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span coreTranslate="entity.action.back">Volver</span>
+        </button>
+
+        <button type="button" [routerLink]="['/persona', persona.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span coreTranslate="entity.action.edit">Editar</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

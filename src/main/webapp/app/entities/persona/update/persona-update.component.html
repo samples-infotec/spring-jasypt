@@ -1,0 +1,154 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="core-persona-heading" data-cy="PersonaCreateUpdateHeading" coreTranslate="angularSampleApp.persona.home.createOrEditLabel">
+        Crear o editar Persona
+      </h2>
+
+      <div>
+        <core-alert-error></core-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" coreTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" coreTranslate="angularSampleApp.persona.nombre" for="field_nombre">Nombre</label>
+          <input type="text" class="form-control" name="nombre" id="field_nombre" data-cy="nombre" formControlName="nombre" />
+          @if (editForm.get('nombre')!.invalid && (editForm.get('nombre')!.dirty || editForm.get('nombre')!.touched)) {
+            <div>
+              @if (editForm.get('nombre')?.errors?.required) {
+                <small class="form-text text-danger" coreTranslate="entity.validation.required">Este campo es obligatorio.</small>
+              }
+              @if (editForm.get('nombre')?.errors?.minlength) {
+                <small class="form-text text-danger" coreTranslate="entity.validation.minlength" [translateValues]="{ min: 2 }"
+                  >Este campo requiere al menos 2 caracteres.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" coreTranslate="angularSampleApp.persona.primerApellido" for="field_primerApellido"
+            >Primer Apellido</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="primerApellido"
+            id="field_primerApellido"
+            data-cy="primerApellido"
+            formControlName="primerApellido"
+          />
+          @if (
+            editForm.get('primerApellido')!.invalid && (editForm.get('primerApellido')!.dirty || editForm.get('primerApellido')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('primerApellido')?.errors?.required) {
+                <small class="form-text text-danger" coreTranslate="entity.validation.required">Este campo es obligatorio.</small>
+              }
+              @if (editForm.get('primerApellido')?.errors?.minlength) {
+                <small class="form-text text-danger" coreTranslate="entity.validation.minlength" [translateValues]="{ min: 2 }"
+                  >Este campo requiere al menos 2 caracteres.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" coreTranslate="angularSampleApp.persona.segundoApellido" for="field_segundoApellido"
+            >Segundo Apellido</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="segundoApellido"
+            id="field_segundoApellido"
+            data-cy="segundoApellido"
+            formControlName="segundoApellido"
+          />
+          @if (
+            editForm.get('segundoApellido')!.invalid && (editForm.get('segundoApellido')!.dirty || editForm.get('segundoApellido')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('segundoApellido')?.errors?.minlength) {
+                <small class="form-text text-danger" coreTranslate="entity.validation.minlength" [translateValues]="{ min: 2 }"
+                  >Este campo requiere al menos 2 caracteres.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" coreTranslate="angularSampleApp.persona.fechaNacimiento" for="field_fechaNacimiento"
+            >Fecha Nacimiento</label
+          >
+          <div class="input-group">
+            <input
+              id="field_fechaNacimiento"
+              data-cy="fechaNacimiento"
+              type="text"
+              class="form-control"
+              name="fechaNacimiento"
+              ngbDatepicker
+              #fechaNacimientoDp="ngbDatepicker"
+              formControlName="fechaNacimiento"
+            />
+            <button type="button" class="btn btn-secondary" (click)="fechaNacimientoDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" coreTranslate="angularSampleApp.persona.edad" for="field_edad">Edad</label>
+          <input type="number" class="form-control" name="edad" id="field_edad" data-cy="edad" formControlName="edad" />
+          @if (editForm.get('edad')!.invalid && (editForm.get('edad')!.dirty || editForm.get('edad')!.touched)) {
+            <div>
+              @if (editForm.get('edad')?.errors?.min) {
+                <small class="form-text text-danger" coreTranslate="entity.validation.min" [translateValues]="{ min: 0 }"
+                  >Este campo debe ser mayor que 0.</small
+                >
+              }
+              @if (editForm.get('edad')?.errors?.max) {
+                <small class="form-text text-danger" coreTranslate="entity.validation.max" [translateValues]="{ max: 100 }"
+                  >Este campo no puede ser mayor que 100.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!editForm.get('edad')?.errors?.number" coreTranslate="entity.validation.number"
+                >Este campo debe ser un número.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" coreTranslate="angularSampleApp.persona.curp" for="field_curp">Curp</label>
+          <input type="text" class="form-control" name="curp" id="field_curp" data-cy="curp" formControlName="curp" />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span coreTranslate="entity.action.cancel">Cancelar</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span coreTranslate="entity.action.save">Guardar</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
