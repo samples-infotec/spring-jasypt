@@ -205,8 +205,9 @@ jhipster:
 # Jasypt Configuration
 jasypt:
   encryptor:
-    algorithm: PBEWithMD5AndDES
-    # Establecer en variable de ambiente
+    # El algoritmo debe ser compatible
+    algorithm: PBEWithSHA1AndDESede
+    # Establecer en variable de ambiente (generar con openssl rand -base64 512)
     password:
 # ===================================================================
 # Application specific properties

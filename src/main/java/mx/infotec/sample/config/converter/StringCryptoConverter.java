@@ -3,6 +3,8 @@ package mx.infotec.sample.config.converter;
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
 import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.env.Environment;
 
 /**
@@ -20,6 +22,11 @@ import org.springframework.core.env.Environment;
 @Converter
 public class StringCryptoConverter implements AttributeConverter<String, String> {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(StringCryptoConverter.class);
+
+    // Property name for the encryption algorithm
+    private static final String ENCRYPTION_ALGORITHM_PROPERTY = "jasypt.encryptor.algorithm";
+
     // Property name for the encryption password
     private static final String ENCRYPTION_PASSWORD_PROPERTY = "jasypt.encryptor.password";
 
@@ -32,9 +39,20 @@ public class StringCryptoConverter implements AttributeConverter<String, String>
      * @param environment The Spring Environment used to access properties.
      */
     public StringCryptoConverter(Environment environment) {
+        var algorithm = environment.getProperty(ENCRYPTION_ALGORITHM_PROPERTY);
+
         // Initialize the encryptor with the encryption password from the environment
         this.encryptor = new StandardPBEStringEncryptor();
+        this.encryptor.setAlgorithm(algorithm);
         this.encryptor.setPassword(environment.getProperty(ENCRYPTION_PASSWORD_PROPERTY));
+
+        LOGGER.debug("StringCryptoConverter init with {} algorithm", algorithm);
+
+        if (LOGGER.isDebugEnabled()) {
+            var tmp = this.encryptor.encrypt(ENCRYPTION_ALGORITHM_PROPERTY);
+            LOGGER.debug("Encrypt {}: {}", ENCRYPTION_ALGORITHM_PROPERTY, tmp);
+            LOGGER.debug("Decrypt: {} ", this.encryptor.decrypt(tmp));
+        }
     }
 
     /**

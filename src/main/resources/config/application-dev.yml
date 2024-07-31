@@ -98,7 +98,7 @@ jhipster:
 # Jasypt Configuration
 jasypt:
   encryptor:
-    password: Temp0ral.i23a.2024
+    password: K2B9Q/7Vor6iWLIKxvL2LKBLkoOLXcsYlmVSnbRVhQWFkakY9NKUW/niL5ENoXDOu16zOoPoxf1maf2K8fAxHbDxd1a+OM7YiuDnsbei1uOZLjcZiu7ZflFKr9jLAoGHFiWf4veCQMFbZI1o5Z/Au2uymodJE6Zvreav46PMjkCNwAHKYZGP47CRY+9hPU2eVxSYoJNQDpSBK5LwCfg8xh8t+uTCSQhINsSKcaLMg8W1hZL6oKpq6rrBjrGR9CCC84zKbeyBMqAbrJrjeZXIpEuyVdm1lYqaaR/Ujs2lgdJh9L7ZjqBajAh6FJ8kxBUbCniCljDDnlgRBMn7BGXdDPWkzakO8PndDPJsN0BhjYzve9cnph2Aq4x+fmipgdDXEWmsnDBI0OMXT11LGujsE8DFHIj594d/61xU4Z27vvffLtdowMUfw8BBqMMTTOFzxFG3bun7c06BjmjmyqXETdFGk9sjQoh0e+yT/hOB/40sk8rKtqkorKk7C4oXNZ063FLzk6BVcEqeCtgLhO0NuWP++MZxy8iHDeO6pl4stdE+RfjcdcUsrqPaX0OLXdOeJ7v9jXVIIcYXGqciEO+39PGX6bh8/ZojeskZGnKLJLl6lGvlsyxLbPun4I0T7YkkpSTa4V3Fn+n/0jzEZbzhYnrdJWW56n7pdZ8HIcml/S4=
 # ===================================================================
 # Application specific properties
 # Add your own application properties here, see the ApplicationProperties class
