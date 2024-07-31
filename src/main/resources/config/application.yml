@@ -201,6 +201,13 @@ jhipster:
     license-url:
   security:
     content-security-policy: "default-src 'self'; frame-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://storage.googleapis.com; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com data:"
+
+# Jasypt Configuration
+jasypt:
+  encryptor:
+    algorithm: PBEWithMD5AndDES
+    # Establecer en variable de ambiente
+    password:
 # ===================================================================
 # Application specific properties
 # Add your own application properties here, see the ApplicationProperties class

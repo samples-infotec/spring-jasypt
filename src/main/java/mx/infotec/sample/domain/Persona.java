@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import mx.infotec.sample.config.converter.StringCryptoConverter;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -46,6 +47,7 @@ public class Persona implements Serializable {
     @Column(name = "edad")
     private Long edad;
 
+    @Convert(converter = StringCryptoConverter.class)
     @Column(name = "curp")
     private String curp;
 

@@ -94,6 +94,11 @@ jhipster:
       host: localhost
       port: 5000
       ring-buffer-size: 512
+
+# Jasypt Configuration
+jasypt:
+  encryptor:
+    password: Temp0ral.i23a.2024
 # ===================================================================
 # Application specific properties
 # Add your own application properties here, see the ApplicationProperties class
